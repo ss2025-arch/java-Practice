@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int minpricesofar = arr[0];
+        int maxprofit = 0;
+
+        for (int i = 1; i < n; i++) {
+
+            if (arr[i] < minpricesofar) {
+                minpricesofar = arr[i];
+            }
+
+            int currentprofit = arr[i] - minpricesofar;
+
+            if (currentprofit > maxprofit) {
+                maxprofit = currentprofit;
+            }
+        }
+
+        System.out.println(maxprofit);
+    }
+}
